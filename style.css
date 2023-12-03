@@ -52,3 +52,11 @@ body {
         opacity: 0.5;
     }
 }
+
+.snake {
+    width: 20px;
+    height: 20px;
+    background-color: chartreuse;
+    position: absolute;
+    border-radius: 5px;
+}
