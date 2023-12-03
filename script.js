@@ -10,9 +10,42 @@ document.addEventListener("DOMContentLoaded", () => {
     let dy = 0; // displacement on y axis
 
 
+    function drawScoreBoard() {
+        const scoreBoard = document.getElementById('score-board');
+        scoreBoard.textContent = `Score : ${score}`;
+    }
+
+    function drawDiv(x, y, className) {
+        const div = document.createElement('div');
+        div.classList.add(className);
+        div.style.top = `${y}px`;
+        div.style.left = `${x}px`;
+        return div;
+    }
+
+    function drawFoodAndSnake() {
+        gameArena.innerHTML = ''; // if previously something is drawn remove it
+        // Wipe out everything and redraw with new coordinates when snake moves
+
+        const foodElement = drawDiv(food.x, food.y, 'food');
+        gameArena.appendChild(foodElement);
+
+    }
+
+    function gameLoop() {
+        setInterval(() => {
+            drawScoreBoard();
+            drawFoodAndSnake();
+        }, 1000);
+    }
+
+    function runGame() {
+        gameStarted = true;
+        gameLoop();
+    }
 
 
-    function startGame() {
+    function initiateGame() {
         const scoreBoard = document.createElement('div');
         scoreBoard.id = 'score-board';
         document.body.insertBefore(scoreBoard, gameArena);
@@ -22,10 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
         startButton.textContent = 'Start Game';
         startButton.classList.add('start-button');
         document.body.appendChild(startButton);
+
+        startButton.addEventListener('click', () => {
+            startButton.style.display = 'none';
+            runGame();
+        })
+
     }
 
 
-    startGame();
+    initiateGame(); // this is the first function to be executed so that we prepare the ui
 
 
 });
