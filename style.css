@@ -1,62 +1,308 @@
+@import url("https://fonts.googleapis.com/css2?family=Alata&display=swap");
+
+* {
+  font-family: "Alata", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: antiquewhite;
-    text-align: center;
+  background-color: antiquewhite;
+}
+
+.main {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1280px;
+  height: 90vh;
+  gap: 1rem;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 600px;
+  height: 90vh;
+  margin: auto;
+  padding: 1rem;
+  gap: 1rem;
+  flex: 1;
+}
+
+.game-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.game-message {
+  height: 66px;
+}
+
+.game-header h1 {
+  font-weight: bold;
+  color: #00a6ed;
+}
+
+.player-name {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-name-input {
+  width: 250px;
+  border-radius: 10px;
+  border: 2px solid orangered;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  outline: none;
+  text-align: center;
+}
+
+.player-name-input:focus {
+  border: 2px solid #00a6ed;
+  outline: none;
+}
+
+.game-arena-div {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #game-arena {
-    width: 600px;
-    height: 600px;
-    background-color: #333;
-    position: relative;
-    border: 5px solid #666;
-    margin-bottom: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  position: relative;
+  border: 5px solid #666;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-#score-board {
-    font-size: x-large;
-    font-weight: bold;
-    color: black;
-    margin: 10px 0;
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(5px);
+  }
+}
+
+.shake {
+  animation: shake 0.1s infinite;
 }
 
 .start-button {
-    background-color: orangered;
-    color: white;
-    padding: 15px 30px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 18px;
-    margin: 4px 0;
-    cursor: pointer;
-    border: none;
-    border-radius: 6px;
+  background-color: orangered;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 4px 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
 }
 
 .food {
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    position: absolute;
-    border-radius: 50%;
-    animation: blink 1s infinite;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border-radius: 50%;
+  animation: blink 1s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes blink {
-    50% {
-        opacity: 0.5;
-    }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .snake {
-    width: 20px;
-    height: 20px;
-    background-color: chartreuse;
-    position: absolute;
-    border-radius: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: chartreuse;
+  position: absolute;
+  border-radius: 5px;
+}
+
+.controls {
+  position: relative;
+  min-height: 7rem;
+  width: 7rem;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.start-game {
+  background-color: orangered;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 4px 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+}
+
+.continue-game {
+  display: none;
+  background-color: orangered;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 4px 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+}
+
+.end-game {
+  display: none;
+  background-color: orangered;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 4px 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+}
+
+.game-btn {
+  background-color: #00a6ed;
+  color: white;
+  height: 2.5rem;
+  width: 2.5rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  display: none;
+}
+
+.up {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.down {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.board {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+  gap: 1rem;
+  padding: 1rem 1rem 3rem 1rem;
+  height: 100%;
+  flex: 1;
+}
+
+.clear-history-btn {
+  background-color: orangered;
+  padding: 0.5rem 1rem;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 4px 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+}
+
+.score-board-table-div {
+  overflow: auto;
+}
+
+.score-board-table-div table,
+.score-board-table-div table tr {
+  border: 2px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid black;
+  width: 100%;
+}
+
+table tr,
+table td,
+table th {
+  border: 2px solid black;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+@media (max-width: 450px) {
+  table th:nth-child(2),
+  table td:nth-child(3) {
+    display: none;
+  }
 }
