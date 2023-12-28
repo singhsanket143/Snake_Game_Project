@@ -1,17 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Game</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- icon -->
+  <link rel="icon" href="https://img.icons8.com/color/48/000000/snake.png" type="image/x-icon" />
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
-    <div id="game-arena">
+
+  <div class="main">
+
+    <div class="game">
+
+      <div class="game-header">
+        <div class="game-title">
+          <h1>Snake Game</h1>
+        </div>
+        <div class="player-name">
+          <form class="player-name-form">
+            <input type="text" id="playerName" name="playerName" value="" class="player-name-input"
+              placeholder="Enter your name" />
+          </form>
+        </div>
+        <div class="current-score">
+          <h2 class="game-message">Hit start to play with 🐍</h2>
+        </div>
+      </div>
+
+      <div class="game-arena-div">
+        <div id="game-arena"></div>
+      </div>
+
+      <div class="controls">
+        <button class="start-game">Start</button>
+        <button class="continue-game">Continue</button>
+        <button class="end-game">End</button>
+        <button class="up game-btn" data-direction="up">🔼</button>
+        <button class="left game-btn" data-direction="left">◀️</button>
+        <button class="right game-btn" data-direction="right">▶️</button>
+        <button class="down game-btn" data-direction="down">🔽</button>
+      </div>
 
     </div>
 
-    <script src="script.js"></script>
+    <div class="board">
+
+      <div class="board-title">
+        <h1>15 top scores</h1>
+      </div>
+
+      <div class="score-board-message-div">
+        <h2 class="score-board-message"></h2>
+      </div>
+
+
+      <div class="clear-history">
+        <button class="clear-history-btn">Clear History</button>
+      </div>
+
+
+      <div class="score-board-table-div">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Name</th>
+              <th>Date & Time</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody class="score-board-list">
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
